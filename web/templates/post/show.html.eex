@@ -5,6 +5,7 @@
 
   <li>
     <strong>Image url:</strong>
+    <%= @post.image_url %>
   </li>
 
   <li>
