@@ -36,6 +36,7 @@ defmodule ElixirFriends.Mixfile do
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
+     {:scrivener, "~> 1.0"},
      {:cowboy, "~> 1.0"}]
   end
 
