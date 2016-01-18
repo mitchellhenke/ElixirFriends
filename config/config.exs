@@ -14,6 +14,10 @@ config :elixir_friends, ElixirFriends.Endpoint,
   pubsub: [name: ElixirFriends.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :elixir_friends, ElixirFriends.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL")
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
