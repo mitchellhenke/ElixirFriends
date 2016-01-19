@@ -19,7 +19,7 @@ defmodule ElixirFriends.Mixfile do
   def application do
     [mod: {ElixirFriends, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :extwitter]]
   end
 
   # Specifies which paths to compile per environment.
