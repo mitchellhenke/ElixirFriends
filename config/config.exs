@@ -38,3 +38,7 @@ config :extwitter, :oauth, [
   access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
   access_token_secret: System.get_env("TWITTER_ACCESS_SECRET")
 ]
+
+if File.exists?("config/#{Mix.env}.secret.exs") do
+  import_config "#{Mix.env}.secret.exs"
+end
