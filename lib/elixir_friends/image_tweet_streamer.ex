@@ -21,7 +21,8 @@ defmodule ElixirFriends.ImageTweetStreamer do
     post = %ElixirFriends.Post{
       image_url: first_photo(tweet).media_url,
       content: tweet.text,
-      source_url: first_photo(tweet).expanded_url
+      source_url: first_photo(tweet).expanded_url,
+      username: tweet.user.screen_name,
     }
     ElixirFriends.Repo.insert(post)
   end
