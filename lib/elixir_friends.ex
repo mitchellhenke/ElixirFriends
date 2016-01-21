@@ -14,7 +14,7 @@ defmodule ElixirFriends do
       supervisor(ElixirFriends.Repo, []),
       # Here you could define other workers and supervisors as children
       # worker(ElixirFriends.Worker, [arg1, arg2, arg3]),
-      worker(Task, [fn -> ElixirFriends.ImageTweetStreamer.stream(@term) |> Enum.to_list end])
+      # worker(Task, [fn -> ElixirFriends.ImageTweetStreamer.stream(@term) |> Enum.to_list end])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

@@ -13,15 +13,16 @@ defmodule ElixirFriends.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api", ElixirFriends do
+    pipe_through :api
+
+    resources "/posts", API.PostController, only: [:index]
+  end
+
   scope "/", ElixirFriends do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
     resources "/posts", PostController
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", ElixirFriends do
-  #   pipe_through :api
-  # end
 end

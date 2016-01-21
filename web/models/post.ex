@@ -23,4 +23,13 @@ defmodule ElixirFriends.Post do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
+
+  defimpl Poison.Encoder, for: ElixirFriends.Post do
+    def encode(post, _options) do
+      post
+      |> Map.from_struct
+      |> Map.delete(:__meta__)
+      |> Poison.encode!
+    end
+  end
 end
