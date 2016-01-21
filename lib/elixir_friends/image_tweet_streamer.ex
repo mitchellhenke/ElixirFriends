@@ -25,6 +25,13 @@ defmodule ElixirFriends.ImageTweetStreamer do
       username: tweet.user.screen_name,
     }
     ElixirFriends.Repo.insert(post)
+    map = %{
+      image_url: post.image_url,
+      content: post.content,
+      source_url: post.source_url,
+      username: post.username
+    }
+    ElixirFriends.Endpoint.broadcast!("posts:new", "new:post", map)
   end
 
   # Now we need to write the `photos` function, which will return a list of the
