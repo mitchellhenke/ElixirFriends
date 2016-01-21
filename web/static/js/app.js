@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import classNames from 'classnames'
 import moment from 'moment'
+import $ from 'jquery'
 let App = {
 }
 let PostList = React.createClass({
@@ -15,6 +16,11 @@ let PostList = React.createClass({
     }
   },
   componentDidMount() {
+    $.get(this.props.source, result => {
+      result = JSON.parse(result) // No idea why this is necessary here...
+        this.setState({posts: result.entries})
+    })
+
     this.subscribeToNewPosts();
   },
   subscribeToNewPosts() {
@@ -71,7 +77,7 @@ let Post = React.createClass({
 
 window.onload = () => {
   let element = document.getElementById("app")
-  ReactDOM.render(<PostList />, element)
+  ReactDOM.render(<PostList source="/api/posts"/>, element)
 }
 
 export default App
