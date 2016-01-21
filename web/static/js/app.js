@@ -25,7 +25,12 @@ let PostList = React.createClass({
       console.log("joined")
     })
     channel.on("new:post", post => {
-      console.log(post)
+      this.injectNewPost(post)
+    })
+  },
+  injectNewPost(post) {
+    this.setState({
+      posts: [post].concat(this.state.posts)
     })
   },
   render() {
